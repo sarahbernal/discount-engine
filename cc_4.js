@@ -39,14 +39,21 @@ if (customerType === "Student") {extraDiscount = 0.05;}
 else if (customerType === "Senior") {extraDiscount = 0.07;}
 else {extraDiscount = 0;}
 
-
 //Step 5: Use for or while loops for 3 customers
-for (let i = 1; i<=3; i++) {
+let customers = [
+    {customerType: "Student", purchases: [0,1]}, 
+    {customerType: "Regular", purchases: [0,2]}, 
+    {customerType: "Senior", purchases: [0,4]}
+]
+for (let i = 1; i <= 3; i++) {
+    let customer = customers[i]
     let subtotal = 0;
+
     for (let product of products) {
     subtotal += product.promoPrice;
     product.inventory--;
 }
+
 let finalTotal = subtotal * (1 - extraDiscount);
 console.log(`Customer ${i}: $${finalTotal.toFixed(2)}`);
 
